@@ -97,6 +97,9 @@ void loop() {
  // add 2.5 minutes to get better estimates
  theTime = theTime.unixtime() + 150;
 
+ //Display Minutes LEDs.
+ int m = 1;  // 0=OFF, 1=ON
+
 
 
 //write 'it is' everytime:
@@ -110,11 +113,13 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(2,1);
    ledOn(2,2);
     Serial.print("mfive ");
+   minutes(m);
  }
  if ((theTime.minute() > 9) && (theTime.minute() < 15)) {
    ledOn(0,6);
    ledOn(0,7);
     Serial.print("mten ");
+   minutes(m);
  }
  if ((theTime.minute() > 14) && (theTime.minute() < 20)) {
    ledOn(1,0);
@@ -129,6 +134,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(1,6);
    ledOn(1,7);
     Serial.print("mtwenty ");
+   minutes(m);
  }
  if ((theTime.minute() > 24) && (theTime.minute() < 30)) {
    ledOn(1,4);
@@ -139,6 +145,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(2,1);
    ledOn(2,1);  //Should this be 2,2??
     Serial.print("mtwenty five ");
+   minutes(m);
  }
  if ((theTime.minute() > 29) && (theTime.minute() < 35)) {
    ledOn(0,3);
@@ -155,6 +162,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(2,1);
    ledOn(2,1);  //Should this be 2,2??
     Serial.print("mtwenty five ");
+   minutes(m);
  }
  if ((theTime.minute() > 39) && (theTime.minute() < 45)) {
    ledOn(1,4);
@@ -162,6 +170,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(1,6);
    ledOn(1,7);
     Serial.print("mtwenty ");
+   minutes(m);
  }
  if ((theTime.minute() > 44) && (theTime.minute() < 50)) {
    ledOn(1,0);
@@ -174,12 +183,14 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(0,6);
    ledOn(0,7);
     Serial.print("mten");
+   minutes(m);
  }
  if (theTime.minute() > 54) {
    ledOn(2,0);
    ledOn(2,1);
    ledOn(2,2);
     Serial.print("mfive ");
+   minutes(m);
  }
 
 
@@ -534,4 +545,16 @@ void ledOn(int x,int y){
   //Function to make it easier & faster to edit matrix LED toggling.
   //Example: ledOn(5,3); instead of ledMatrix[5][3] = 1;
   ledMatrix[x][y] = 1;
+}
+
+void minutes(int status){
+  if(status==0){
+    Serial.print("");
+  }
+  if(status==1){
+    ledOn(2,3);
+    ledOn(2,4);
+    ledOn(2,5);
+    Serial.print("minutes ")
+  }
 }
