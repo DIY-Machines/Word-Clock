@@ -102,7 +102,7 @@ void loop() {
 //write 'it is' everytime:
 ledOn(0,0);
 ledOn(0,1);
-ledOn(0,0);
+ledOn(0,2);
 
 
 if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
@@ -137,7 +137,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(1,7);
    ledOn(2,0);
    ledOn(2,1);
-   ledOn(2,1);  //Should this be 2,2??
+   ledOn(2,2);
     Serial.print("mtwenty five ");
  }
  if ((theTime.minute() > 29) && (theTime.minute() < 35)) {
@@ -153,7 +153,7 @@ if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
    ledOn(1,7);
    ledOn(2,0);
    ledOn(2,1);
-   ledOn(2,1);  //Should this be 2,2??
+   ledOn(2,2);
     Serial.print("mtwenty five ");
  }
  if ((theTime.minute() > 39) && (theTime.minute() < 45)) {
